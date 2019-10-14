@@ -1,0 +1,28 @@
+{
+  "name": "sharp-tv",
+	"version": "0.0.1",
+	"api_version": "0.1.0",
+	"description": "Sharp tv",
+	"keywords": [
+		"Monitor",
+		"TV",
+		"Display"
+	],
+	"manufacturer": "Sharp",
+	"product": ["TV", "PN-LE901"],
+	"shortname": "Sharp-TV",
+	"homepage": "https://github.com/bitfocus/companion-module-sharp-tv#readme",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bitfocus/companion-module-sharp-tv.git"
+	},
+	"author": "Andreas H. Thomsen <mc-hauge@hotmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/bitfocus/companion-module-sharp-tv/issues"
+	}
+}
