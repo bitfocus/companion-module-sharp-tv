@@ -152,32 +152,32 @@ instance.prototype.CHOICES_INPUTS = [
 	{ id: '2   ', 	label: 'HDMI 2' },
 	{ id: '3   ', 	label: 'HDMI 3' },
 	{ id: '4   ', 	label: 'VIDEO IN 1' },
-	{ id: '5   ', 	label: 'VIDEO IN 2 / COMPONENT' },
-	{ id: '6   ', 	label: 'PC IN' },
+	{ id: '5   ', 	label: 'VIDEO IN 2' },
+	{ id: '6   ', 	label: 'PC' },
 ];
 
 instance.prototype.CHOICES_AV_MODE = [
-	{ id: '0   ', 	label: 'Toggle' },
-	{ id: '1   ', 	label: 'Standard' },
-	{ id: '2   ', 	label: 'Movie' },
-	{ id: '4   ', 	label: 'User' },
-	{ id: '5   ', 	label: 'Dynamic (Fixed)' },
-	{ id: '6   ', 	label: 'Dynamic' },
-	{ id: '7   ', 	label: 'PC' },
+	{ id: '0   ', 	label: 'Toggle',					short: 'Toggle' },
+	{ id: '1   ', 	label: 'Standard',				short: 'STD' },
+	{ id: '2   ', 	label: 'Movie',						short: 'Movie' },
+	{ id: '4   ', 	label: 'User',						short: 'User' },
+	{ id: '5   ', 	label: 'Dynamic (Fixed)',	short: 'DYN (Fixed)' },
+	{ id: '6   ', 	label: 'Dynamic',					short: 'DYN' },
+	{ id: '7   ', 	label: 'PC',							short: 'PC' },
 ];
 
 instance.prototype.CHOICES_VIEW_MODE = [
-	{ id: '0   ', 	label: 'Toggle [AV]' },
-	{ id: '1   ', 	label: 'Side Bar [AV]' },
-	{ id: '2   ', 	label: 'S.Stretch [AV]' },
-	{ id: '3   ', 	label: 'Zoom [AV]' },
-	{ id: '4   ', 	label: 'Stretch [AV, USB, Network]' },
-	{ id: '5   ', 	label: 'Normal [PC]' },
-	{ id: '7   ', 	label: 'Stretch [PC]' },
-	{ id: '8   ', 	label: 'Dot By Dot [PC, AV]' },
-	{ id: '9   ', 	label: 'Fullscreen [AV]' },
-	{ id: '10  ',		label: 'Auto [USB, Network]' },
-	{ id: '11  ',		label: 'Original [USB, Network]' },
+	{ id: '0   ', 	label: 'Toggle [AV]',									short: 'Toggle [AV]' },
+	{ id: '1   ', 	label: 'Side Bar [AV]',								short: 'Side Bar [AV]' },
+	{ id: '2   ', 	label: 'S.Stretch [AV]',							short: 'S.STR [AV]' },
+	{ id: '3   ', 	label: 'Zoom [AV]',										short: 'Zoom [AV]' },
+	{ id: '4   ', 	label: 'Stretch [AV, USB, Network]',	short: 'STR [ALL]' },
+	{ id: '5   ', 	label: 'Normal [PC]',									short: 'Normal [PC]' },
+	{ id: '7   ', 	label: 'Stretch [PC]',								short: 'STR [PC]' },
+	{ id: '8   ', 	label: 'Dot By Dot [PC, AV]',					short: 'D by D [PC AV]' },
+	{ id: '9   ', 	label: 'Fullscreen [AV]',							short: 'Full [AV]' },
+	{ id: '10  ',		label: 'Auto [USB, Network]',					short: 'Auto [USB]' },
+	{ id: '11  ',		label: 'Original [USB, Network]',			short: 'Orginal [USB]' },
 ];
 
 instance.prototype.CHOICES_SLEEP = [
@@ -198,9 +198,14 @@ instance.prototype.CHOICES_VOLUME = [
 	{ id: 'mute_on', 			label: 'Mute ON' },
 	{ id: 'mute_off', 		label: 'Myte OFF' },
 	{ id: 'mute_tog', 		label: 'Myte Toggle' },
-	{ id: 'surround_on', 	label: 'Surround ON' },
-	{ id: 'surround_off',	label: 'Surround OFF' },
-	{ id: 'surround_tog', label: 'Surround Toggle' },
+	{ id: 'surround_on', 	label: 'SURR ON' },
+	{ id: 'surround_off',	label: 'SURR OFF' },
+	{ id: 'surround_tog', label: 'SURR Toggle' },
+];
+
+instance.prototype.CHOICES_CHANNEL = [
+	{ id: 'ch_up',	 			label: 'CH  Up'	},
+	{ id:	'ch_down',			label: 'CH Down'	},
 ];
 
 instance.prototype.CHOICES_COMMANDS_1 = [
@@ -209,6 +214,8 @@ instance.prototype.CHOICES_COMMANDS_1 = [
 	{ id: 'stb_on', 	label: 'Standby ON' },
 	{ id: 'stb_off', 	label: 'Standby OFF' },
 	{ id: 'volume',		label: 'Volume' },
+	{ id: 'ch_up',	 			label: 'CH  Up'	},
+	{ id:	'ch_down',			label: 'CH Down'	},
 	{ id: 'cc_tog',		label: 'CC Toggle' },
 ];
 
@@ -270,7 +277,83 @@ instance.prototype.init_presets = function () {
 				}
 			}]
 		});
+	}
+	
+	for (var input in self.CHOICES_CHANNEL) {
+		presets.push({
+			category: 'Channel Analog',
+			label: self.CHOICES_CHANNEL[input].label,
+			bank: {
+				style: 'text',
+				text: self.CHOICES_CHANNEL[input].label,
+				size: pstSize,
+				color: '16777215',
+				bgcolor: 0
+			},
+			actions: [{
+				action: self.CHOICES_CHANNEL[input].id,
+			}]
+		});
 	}	
+
+	for (var i = 0; i < 135; i++) {
+		presets.push({
+			category: 'Channel Analog',
+			label: 'CH ' + (i+1),
+			bank: {
+				style: 'text',
+				text: 'CH ' + (i+1),
+				size: pstSize,
+				color: '16777215',
+				bgcolor: 0
+			},
+			actions: [{
+				action: 'ch_analog',
+				options: {
+					action: (i+1),
+				}
+			}]
+		});
+	}
+
+	for (var input in self.CHOICES_CHANNEL) {
+		presets.push({
+			category: 'Channel Digital',
+			label: self.CHOICES_CHANNEL[input].label,
+			bank: {
+				style: 'text',
+				text: self.CHOICES_CHANNEL[input].label,
+				size: pstSize,
+				color: '16777215',
+				bgcolor: 0
+			},
+			actions: [{
+				action: self.CHOICES_CHANNEL[input].id,
+			}]
+		});
+	}	
+
+	for (var i = 0; i < 200; i++) {
+		presets.push({
+			category: 'Channel Digital',
+			label: 'CH ' + (i+1),
+			bank: {
+				style: 'text',
+				text: 'CH ' + (i+1),
+				size: pstSize,
+				color: '16777215',
+				bgcolor: 0
+			},
+			actions: [{
+				action: 'ch_digital_l',
+				options: {
+					action: (i+1),
+				}
+			}]
+		});
+	}
+
+
 
 	for (var input in self.CHOICES_AV_MODE) {
 		presets.push({
@@ -278,7 +361,7 @@ instance.prototype.init_presets = function () {
 			label: self.CHOICES_AV_MODE[input].label,
 			bank: {
 				style: 'text',
-				text: self.CHOICES_AV_MODE[input].label,
+				text: self.CHOICES_AV_MODE[input].short,
 				size: pstSize,
 				color: '16777215',
 				bgcolor: 0
@@ -298,7 +381,7 @@ instance.prototype.init_presets = function () {
 			label: self.CHOICES_VIEW_MODE[input].label,
 			bank: {
 				style: 'text',
-				text: self.CHOICES_VIEW_MODE[input].label,
+				text: self.CHOICES_VIEW_MODE[input].short,
 				size: pstSize,
 				color: '16777215',
 				bgcolor: 0
@@ -415,7 +498,57 @@ instance.prototype.actions = function(system) {
 				},
 			]
 		},
+		'ch_analog': {
+			label: 'Direct Channel (Analog)',
+			options: [
+				{
+					type: 'number',
+					id: 'action',
+					label: 'Channel number (1-135)',
+					min: 1,
+					max: 135,
+					default: 1,
+					required: true,
+					range: false,
+					regex: self.REGEX_NUMBER
+				}
+			]
+		},
+		'ch_digital_l': {
+			label: 'Direct Channel (Digital <10000)',
+			options: [
+				{
+					type: 'number',
+					id: 'action',
+					label: 'Channel number (0-9999)',
+					min: 0,
+					max: 9999,
+					default: 1,
+					required: true,
+					range: false,
+					regex: self.REGEX_NUMBER
+				}
+			]
+		},
+		'ch_digital_h': {
+			label: 'Direct Channel (Digital >10000)',
+			options: [
+				{
+					type: 'number',
+					id: 'action',
+					label: 'Channel number (0-6383 = 10000-16383)',
+					min: 0,
+					max: 6383,
+					default: 1,
+					required: true,
+					range: false,
+					regex: self.REGEX_NUMBER
+				}
+			]
+		},
 
+		'ch_up':	 			{ label: 'Channel Up'	},
+		'ch_down':			{	label: 'Channel Down'	},
 		'mute_on': 			{ label: 'Myte Audio ON'	},
 		'mute_off':			{	label: 'Mute Audio OFF'	},
 		'mute_tog':			{	label: 'Toggle Mute Audio'	},
@@ -454,6 +587,11 @@ instance.prototype.action = function(action) {
 		case 'av_mode':				cmd = 'AVMD' + action.options.action;	break;
 		case 'volume':				cmd = 'VOLM' + action.options.action;	break;
 		case 'view_mode':			cmd = 'WIDE' + action.options.action;	break;
+		case 'ch_analog':			cmd = 'DCCH' + action.options.action + ' ';	break;
+		case 'ch_digital_l':	cmd = 'DC10' + action.options.action;	break;
+		case 'ch_digital_h':	cmd = 'DC11' + action.options.action;	break;
+		case 'ch_up':					cmd = 'CHUP1   ';	break;
+		case 'ch_down':				cmd = 'CHDW2   ';	break;
 		case 'mute_on':				cmd = 'MUTE1   ';	break;
 		case 'mute_off':			cmd = 'MUTE2   ';	break;
 		case 'mute_tog':			cmd = 'MUTE0   ';	break;
