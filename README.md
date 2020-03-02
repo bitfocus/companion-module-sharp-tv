@@ -1,8 +1,5 @@
 # companion-module-sharp-tv
-
-Provides essential control over TCP, for more info look in HELP.md
-
-This module will connect to a Sharp TV, it was build around a PN-LE901, but should work with most Sharp TV's/monitors with a network connection.
+See HELP.md and LICENSE
 
 **V0.0.1** 
 * Initial module
