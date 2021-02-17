@@ -12,7 +12,7 @@ See HELP.md and LICENSE
 **V1.0.0**
 * Swaped "Power ON/OFF" Actions to work as expected
 * Renamed "Quick Power ON/OFF" to "Network Card ON/OFF"
+* Confirmed working on some models
 
 **To Do**
 * Fix some preset button text's / size's
-* Change version to V1.0.0 when confirmed working by testing
