@@ -64,10 +64,10 @@ instance.prototype.init_tcp = function() {
 		self.socket.on('connect', function (socket) {
 			self.status(self.STATE_OK);
 			debug("Connected");
-			console.log('PN-LE910 Connected');
+			console.log('Sharp TV Connected');
 
 			socket.once('close', function() {
-				console.log('PN-LE910 Disconnect');
+				console.log('Sharp TV Disconnect');
 			})
 		})
 
@@ -205,7 +205,7 @@ instance.prototype.CHOICES_VOLUME = [
 
 instance.prototype.CHOICES_CHANNEL = [
 	{ id: 'ch_up',	 			label: 'CH  Up'	},
-	{ id:	'ch_down',			label: 'CH Down'	},
+	{ id: 'ch_down',			label: 'CH Down'	},
 ];
 
 instance.prototype.CHOICES_COMMANDS_1 = [
@@ -215,7 +215,7 @@ instance.prototype.CHOICES_COMMANDS_1 = [
 	{ id: 'stb_off', 	label: 'Standby OFF' },
 	{ id: 'volume',		label: 'Volume' },
 	{ id: 'ch_up',	 			label: 'CH  Up'	},
-	{ id:	'ch_down',			label: 'CH Down'	},
+	{ id: 'ch_down',			label: 'CH Down'	},
 	{ id: 'cc_tog',		label: 'CC Toggle' },
 ];
 
