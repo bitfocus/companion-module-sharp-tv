@@ -9,6 +9,10 @@ See HELP.md and LICENSE
 * Added channel select, both analog and digital
 * Semi Fixed the preset button text
 
+**V1.0.0**
+* Swaped "Power ON/OFF" Actions to work as expected
+* Renamed "Quick Power ON/OFF" to "Network Card ON/OFF"
+
 **To Do**
 * Fix some preset button text's / size's
 * Change version to V1.0.0 when confirmed working by testing

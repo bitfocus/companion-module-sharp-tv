@@ -2,9 +2,12 @@
 
 This module will connect to a Sharp TV, it was build around a PN-LE901, but should work with most Sharp TV's/monitors with a network connection.
 
+**Note:**
+The "Network Card ON" action need's to be sent to the TV at least once to enable power on/off functionality
+
 **Available commands for Sharp TV's**
-* Quick Power ON
-* Quick Power OFF
+* Network Card ON
+* Network Card OFF
 * Standby Power ON
 * Standby Power OFF
 * Input Select TV

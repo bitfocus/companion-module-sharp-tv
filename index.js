@@ -440,8 +440,8 @@ instance.prototype.actions = function(system) {
 
 	self.system.emit('instance_actions', self.id, {
 
-		'pw_on': 		{	label: 'Quick Power ON'		},
-		'pw_off':		{	label: 'Quick Power OFF'	},
+		'pw_on': 		{	label: 'Network Card ON'		},
+		'pw_off':		{	label: 'Network Card OFF'	},
 		'stb_on': 	{	label: 'Standby Power ON'		},
 		'stb_off':	{	label: 'Standby Power OFF'	},
 		'input_tv':	{	label: 'Input Select TV'	},
@@ -578,10 +578,10 @@ instance.prototype.action = function(action) {
 
 	switch(action.action) {
 
-		case 'pw_on':					cmd = 'RSPW0   ';	break;
-		case 'pw_off':				cmd = 'RSPW2   ';	break;
-		case 'stb_on':				cmd = 'POWR0   ';	break;
-		case 'stb_off':				cmd = 'POWR1   ';	break;
+		case 'pw_on':					cmd = 'RSPW2   ';	break;
+		case 'pw_off':				cmd = 'RSPW0   ';	break;
+		case 'stb_on':				cmd = 'POWR1   ';	break;
+		case 'stb_off':				cmd = 'POWR0   ';	break;
 		case 'input_tv':			cmd = 'ITVD0   ';	break;
 		case 'input':					cmd = 'IAVD' + action.options.action;	break;
 		case 'av_mode':				cmd = 'AVMD' + action.options.action;	break;
