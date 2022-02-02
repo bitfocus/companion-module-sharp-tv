@@ -1,6 +1,6 @@
 {
-  "name": "sharp-tv",
-	"version": "1.0.0",
+	"name": "sharp-tv",
+	"version": "1.0.1",
 	"api_version": "0.1.0",
 	"description": "Sharp tv",
 	"keywords": [
@@ -9,7 +9,10 @@
 		"Display"
 	],
 	"manufacturer": "Sharp",
-	"product": ["TV", "PN-LE901"],
+	"product": [
+		"TV",
+		"PN-LE901"
+	],
 	"shortname": "Sharp-TV",
 	"homepage": "https://github.com/bitfocus/companion-module-sharp-tv#readme",
 	"main": "index.js",
